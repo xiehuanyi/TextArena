@@ -42,5 +42,6 @@ for env_id in ['TicTacToe-v0', 'DontSayIt-v0', 'Poker-v0', 'Snake-v0']:
         rewards = env.close()
         winners.append(0 if rewards[0] > rewards[1] else 1)
     print(f"Winner: {winners}")
+    fout.write(f"{env_id}")
     fout.write(f"{sys.argv[1]} vs DeepSeek-R1-Distill-Qwen-32B: {winners}\n")
 
