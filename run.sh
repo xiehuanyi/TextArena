@@ -3,7 +3,7 @@ conda env create -f env.yaml
 # 启动 32B 模型（后台运行）
 echo "启动 32B 模型..."
 CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 nohup vllm serve \
-    --model /home/v-huzhengyu/zhengyu_blob_home/hugging_face_models/models--deepseek-ai--DeepSeek-R1-Distill-Qwen-32B/snapshots/711ad2ea6aa40cfca18895e8aca02ab92df1a746 \
+    --model /home/aiscuser/zhengyu_blob_home/hugging_face_models/models--deepseek-ai--DeepSeek-R1-Distill-Qwen-32B/snapshots/711ad2ea6aa40cfca18895e8aca02ab92df1a746 \
     --port 8001 \
     --tensor-parallel-size 7 > deepseek_32b.log 2>&1 &
 
