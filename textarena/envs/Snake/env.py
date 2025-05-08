@@ -148,6 +148,8 @@ class SnakeEnv(ta.Env):
                         break
                 prompt += f"Below is the history game trajectories: \n<|history|>{json.dumps(finished_his)}<|history|>\n"
             # print(prompt)
+        if len(prompt) > 30000:
+            prompt = prompt[:32000]
         return prompt
        
     def _get_board_string(self, snakes: Dict[int, Snake], apples: List[Tuple[int, int]]) -> str:
@@ -230,7 +232,7 @@ class SnakeEnv(ta.Env):
         self._check_turn_limit(his)
         return self.state.step(rotate_player=False)
 
-    def _check_turn_limit(self):
+    def _check_turn_limit(self, his):
         # check that not yet done
         if self.state.done:
             return

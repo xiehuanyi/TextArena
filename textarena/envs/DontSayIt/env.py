@@ -89,6 +89,8 @@ class DontSayItEnv(ta.Env):
                             finished_his = self.history[:-idx]
                         break
                 prompt += f"Below is the history game trajectories: \n<|history|>{json.dumps(finished_his)}<|history|>\n"
+        if len(prompt) > 30000:
+            prompt = prompt[:30000]
         return prompt
 
 

@@ -14,7 +14,6 @@ sleep 30
 declare -a MODEL_IDS=(
     "Qwen/Qwen2.5-7B-Instruct"
     "meta-llama/Meta-Llama-3-8B-Instruct"
-    "microsoft/phi-3-mini-128k-instruct"
     "mistralai/Mistral-7B-Instruct-v0.3"
     "microsoft/phi-4-mini-instruct"
 )

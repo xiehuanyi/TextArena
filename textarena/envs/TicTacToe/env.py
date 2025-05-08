@@ -69,6 +69,8 @@ class TicTacToeEnv(ta.Env):
                         break
                 prompt += f"Below is the history game trajectories: \n<|history|>{json.dumps(finished_his)}<|history|>\n"
             # print(prompt)
+        if len(prompt) > 30000:
+            prompt = prompt[:30000]
         return prompt
 
     def step(self,action:str)->Tuple[bool,ta.Info]:

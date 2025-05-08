@@ -1,8 +1,9 @@
 import re, random
 from collections import Counter
 from typing import Any, Dict, List, Optional, Tuple
-
+import json
 import os
+
 import textarena as ta
 from textarena.envs.Poker.renderer import create_board_str
 
@@ -122,6 +123,8 @@ class PokerEnv(ta.Env):
                             finished_his = self.history[:-idx]
                         break
                 prompt += f"Below is the history game trajectories: \n<|history|>{json.dumps(finished_his)}<|history|>\n"
+        if len(prompt) > 30000:
+            prompt = prompt[:30000]
         return prompt
 
     def _create_deck(self) -> List[Dict[str, str]]:
